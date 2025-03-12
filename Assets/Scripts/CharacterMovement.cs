@@ -10,6 +10,10 @@ public class CharacterMovement : MonoBehaviour
     float horizontalInput;
     float verticalInput;
     CharacterController controller;
+    public float turnSpeed = 3;
+    public float minTurnAngle = -30;
+    public float maxTurnAngle = 30;
+    public float rotX;
 
 
     void Start()
@@ -20,6 +24,7 @@ public class CharacterMovement : MonoBehaviour
     void Update()
     {
         HandleMove();
+        HandleRotate();
     } 
 
     void HandleMove()
@@ -31,4 +36,19 @@ public class CharacterMovement : MonoBehaviour
 
         controller.Move(direction * movementSpeed * Time.deltaTime);
     }
+
+    void HandleRotate()
+    {
+        // get the mouse inputs
+        float y = Input.GetAxis("Mouse X") * turnSpeed;
+        rotX += Input.GetAxis("Mouse Y") * turnSpeed;
+
+        // clamp the vertical rotation
+        rotX = Mathf.Clamp(rotX, minTurnAngle, maxTurnAngle);
+
+        // rotate the camera
+        transform.eulerAngles = new Vector3(-rotX, transform.eulerAngles.y + y, 0);
+    }
+
+
 }
