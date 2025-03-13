@@ -7,23 +7,38 @@ public class FollowPlayer : MonoBehaviour {
     public float minTurnAngle = -30;
     public float maxTurnAngle = 30;
     public float rotX;
+    public float rotY;
+    public float cameraDistance = 5f; 
+    private Vector3 offset;
 
-    // Update is called once per frame
-    void Update () {
-        transform.position = player.transform.position;
-        HandleRotate();
+    void Start() {
+        offset = transform.position - player.transform.position;
     }
 
-    void HandleRotate()
-    {
+    void Update() {
+        HandleRotate();
+        PositionCamera();
+    }
+
+    void HandleRotate() {
         // get the mouse inputs
-        float y = Input.GetAxis("Mouse X") * turnSpeed;
+        rotY = Input.GetAxis("Mouse X") * turnSpeed;
         rotX += Input.GetAxis("Mouse Y") * turnSpeed;
 
         // clamp the vertical rotation
         rotX = Mathf.Clamp(rotX, minTurnAngle, maxTurnAngle);
 
         // rotate the camera
-        transform.eulerAngles = new Vector3(-rotX, transform.eulerAngles.y + y, 0);
+        transform.eulerAngles = new Vector3(-rotX, transform.eulerAngles.y + rotY, 0);
+    }
+    
+    void PositionCamera() {
+        Vector3 cameraHeight = new Vector3(0, 1, 0);
+        Vector3 cameraPosition = player.position - (transform.forward * cameraDistance) + cameraHeight;
+        transform.position = cameraPosition;
+    }
+
+    public float GetRotY(){
+        return rotY;
     }
 }
