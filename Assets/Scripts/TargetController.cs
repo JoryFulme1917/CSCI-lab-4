@@ -22,7 +22,7 @@ public class TargetController : MonoBehaviour
 
             // maybe trigger dialogue
 
-            gameObject.SetActive(false);
+            
             gameObject.GetComponent<MeshRenderer>().enabled = false;
 
 
@@ -33,7 +33,7 @@ public class TargetController : MonoBehaviour
 
     public void ResetTarget()
     {
-        gameObject.SetActive(true);
+       
         gameObject.GetComponent<MeshRenderer>().enabled = true;
     }
 
