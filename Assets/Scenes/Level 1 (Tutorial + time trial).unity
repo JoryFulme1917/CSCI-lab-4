@@ -445,11 +445,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66bb700dbda9c9b4083a76a789bebc3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1950700531}
+  player: {fileID: 750117739}
   turnSpeed: 1
   minTurnAngle: -30
   maxTurnAngle: 30
   rotX: 0
+  rotY: 0
+  cameraDistance: 5
 --- !u!1001 &351565763
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1013,9 +1015,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 1
   direction: {x: 0, y: 0, z: 0}
-  turnSpeed: 3
-  minTurnAngle: -30
-  maxTurnAngle: 30
+  turnSpeed: 1
+  minTurnAngle: 0
+  maxTurnAngle: 0
   rotX: 0
 --- !u!114 &750117745
 MonoBehaviour:
@@ -1029,7 +1031,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0925ba9b9eeef444f8a4f75160c8175b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraPosition: {fileID: 1950700531}
+  cameraPosition: {fileID: 330585546}
   throwPoint: {fileID: 808413477}
   originalProjectile: {fileID: 278924816}
   throwKey: 323
@@ -2460,37 +2462,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9e2a01ecda5258e4590bff3ba5b0393f, type: 3}
   m_PrefabInstance: {fileID: 2024594232}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1950700530
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1950700531}
-  m_Layer: 0
-  m_Name: CameraPosition
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1950700531
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1950700530}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3, y: 1.8, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 750117739}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2024594232
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2679,9 +2650,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 18a50e4d525d28e489af117e9b7d0347, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1950700531}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 18a50e4d525d28e489af117e9b7d0347, type: 3}
       insertIndex: -1
       addedObject: {fileID: 808413477}
