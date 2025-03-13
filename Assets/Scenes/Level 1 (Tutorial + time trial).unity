@@ -1034,8 +1034,8 @@ MonoBehaviour:
   originalProjectile: {fileID: 278924816}
   throwKey: 323
   cooldown: 1
-  throwPower: -30
-  throwArc: -10
+  throwPower: 1000
+  throwArc: 0
 --- !u!1 &808413476
 GameObject:
   m_ObjectHideFlags: 0

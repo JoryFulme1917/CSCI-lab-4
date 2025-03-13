@@ -33,7 +33,7 @@ public class ThrowObject : MonoBehaviour
         throwReady = false;
         GameObject projectile = Instantiate(originalProjectile, throwPoint.position, cameraPosition.rotation);
         Rigidbody projectileBody = projectile.GetComponent<Rigidbody>();
-        Vector3 totalForce = cameraPosition.transform.position * throwPower + transform.up * throwArc;
+        Vector3 totalForce = cameraPosition.forward * throwPower + transform.up * throwArc;
         projectileBody.AddForce(totalForce);
         //https://discussions.unity.com/t/how-to-make-a-delay-before-an-action/177659
         Invoke("ResetThrow", cooldown);
