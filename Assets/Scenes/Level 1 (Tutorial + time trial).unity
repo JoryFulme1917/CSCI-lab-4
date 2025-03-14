@@ -618,6 +618,7 @@ MonoBehaviour:
   rotX: 0
   rotY: 0
   cameraDistance: 5
+  cameraLowestPoint: 0.5
 --- !u!1001 &351565763
 PrefabInstance:
   m_ObjectHideFlags: 0
