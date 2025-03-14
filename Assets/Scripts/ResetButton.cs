@@ -4,7 +4,7 @@ using UnityEngine;
 public class ResetButton : MonoBehaviour
 {
 
-
+    public TargetTracker targetTracker;
     private void OnTriggerEnter(Collider collision)
     {
 
@@ -24,7 +24,7 @@ public class ResetButton : MonoBehaviour
             Debug.Log("Ball Hit Reset Button");
             
             
-            // reset score counter
+            targetTracker.ResetTargets();
 
             target1.GetComponent<TargetController>().ResetTarget();
             target2.GetComponent<TargetController>().ResetTarget();

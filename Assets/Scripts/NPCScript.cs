@@ -7,9 +7,13 @@ using TMPro;
 public class NPCDialogue : MonoBehaviour
 {
     public float interactionDistance = 3f;
-    public string[] dialogueLines;
+    public string[] initialDialogueLines;
+    public string[] completionDialogueLines;
     public GameObject dialoguePanel;
     public TextMeshProUGUI dialogueText;
+    
+    // Reference to the script that tracks the condition
+    public TargetTracker targetTracker;
     
     private Transform player;
     private int currentLine = 0;
@@ -22,6 +26,9 @@ public class NPCDialogue : MonoBehaviour
         
         if (dialoguePanel != null)
             dialoguePanel.SetActive(false);
+            
+        if (targetTracker == null)
+            Debug.LogWarning("Target Manager not assigned to NPC Dialogue!");
     }
     
     void Update()
@@ -73,10 +80,24 @@ public class NPCDialogue : MonoBehaviour
     
     void DisplayDialogue()
     {
-        if (dialogueLines.Length > 0 && currentLine < dialogueLines.Length)
+        string[] currentDialogueSet = GetCurrentDialogueSet();
+        
+        if (currentDialogueSet.Length > 0 && currentLine < currentDialogueSet.Length)
         {
             if (dialogueText != null)
-                dialogueText.text = dialogueLines[currentLine];
+                dialogueText.text = currentDialogueSet[currentLine];
+        }
+    }
+    
+    string[] GetCurrentDialogueSet()
+    {
+        if (targetTracker != null && targetTracker.AllTargetsHit)
+        {
+            return completionDialogueLines;
+        }
+        else
+        {
+            return initialDialogueLines;
         }
     }
     
@@ -84,7 +105,9 @@ public class NPCDialogue : MonoBehaviour
     {
         currentLine++;
         
-        if (currentLine >= dialogueLines.Length)
+        string[] currentDialogueSet = GetCurrentDialogueSet();
+        
+        if (currentLine >= currentDialogueSet.Length)
         {
             EndDialogue();
         }
@@ -99,7 +122,14 @@ public class NPCDialogue : MonoBehaviour
         isDialogueActive = false;
         
         if (dialoguePanel != null)
+        {
             dialoguePanel.SetActive(false);
+        }
+        if (targetTracker.AllTargetsHit)
+        {
+            //Scene Transition    
+        }
+
     }
     
 }

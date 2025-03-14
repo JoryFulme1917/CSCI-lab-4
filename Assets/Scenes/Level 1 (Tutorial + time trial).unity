@@ -975,7 +975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.25490198}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1873,6 +1873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62c4f48fc2fb7af43910e21b0d26b543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetTracker: {fileID: 1463750184}
 --- !u!1001 &1076981428
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2314,17 +2315,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionDistance: 3
-  dialogueLines:
+  initialDialogueLines:
   - Alright recruit, welcome to the throwing range. Targets are behind you, good
     luck hitting them.
   - "If you wanna test your skills, there\u2019s a button near the front you can
     hit with a ball that\u2019ll start a stopwatch. Try and hit all six as quick
-    as you can."
-  - "You can also practice without the timer. Hit the button next to me to reset.
-    Come talk to me when you\u2019ve hit all 6 and feel comfortable with your aim."
+    as you can. "
+  - "You can also practice without the timer. Hit the button next to me to reset
+    the targets. Come talk to me when you\u2019ve hit all 6 and feel comfortable
+    with your aim."
   - "I\u2019m not confident in your skills yet rookie. Give it another go for me."
+  completionDialogueLines:
+  - "Alright rookie, that\u2019s pretty good. I think that\u2019s enough for today\u2026"
+  - Wait a minute what the hell is that?!
   dialoguePanel: {fileID: 443473606}
   dialogueText: {fileID: 2053481255}
+  targetTracker: {fileID: 1463750184}
 --- !u!1001 &1335964336
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2502,6 +2508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62c4f48fc2fb7af43910e21b0d26b543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetTracker: {fileID: 1463750184}
 --- !u!1001 &1385115967
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2684,6 +2691,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62c4f48fc2fb7af43910e21b0d26b543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetTracker: {fileID: 1463750184}
+--- !u!1 &1463750183
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1463750185}
+  - component: {fileID: 1463750184}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1463750184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463750183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdc8665e21a3af54db84aea440c559cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllTargetsHit: 0
+  targetHitCount: 0
+  requiredTargets: 6
+  resetButton: {fileID: 2085407662}
+--- !u!4 &1463750185
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463750183}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.36778784, y: 0, z: -35.433636}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1553063632
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2974,6 +3030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62c4f48fc2fb7af43910e21b0d26b543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetTracker: {fileID: 1463750184}
 --- !u!1001 &1708478579
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3105,6 +3162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62c4f48fc2fb7af43910e21b0d26b543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetTracker: {fileID: 1463750184}
 --- !u!1 &1727579603 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a213e06a6af889b478652c916515cf68, type: 3}
@@ -3448,7 +3506,7 @@ GameObject:
   - component: {fileID: 2085407668}
   - component: {fileID: 2085407667}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: ResetBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3556,6 +3614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89beef664517a5b4389160b873cdd741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetTracker: {fileID: 0}
 --- !u!54 &2085407668
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3822,6 +3881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62c4f48fc2fb7af43910e21b0d26b543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetTracker: {fileID: 1463750184}
 --- !u!1001 &6966378534394628869
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3915,4 +3975,5 @@ SceneRoots:
   - {fileID: 2085407666}
   - {fileID: 1010928788}
   - {fileID: 200938159}
+  - {fileID: 1463750185}
   - {fileID: 771708245}

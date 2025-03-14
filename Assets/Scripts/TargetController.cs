@@ -2,58 +2,34 @@ using UnityEngine;
 
 public class TargetController : MonoBehaviour
 {
-
-
+    public TargetTracker targetTracker;
 
     private void OnTriggerEnter(Collider collision)
     {
-
-        Debug.Log("Target Hit");
-
-        if (collision.gameObject.tag == "Ball")
-        {
-            
+        if (collision.gameObject.CompareTag("Ball"))
+        {   
             Debug.Log("Ball Hit Target");
-
-            // inc score counter
-
-
-            // play some kind of sound
-
-            // maybe trigger dialogue
-
             
+            // Increment count only once
+            targetTracker.TargetHit();
+            
+            // Disable the mesh renderer
             gameObject.GetComponent<MeshRenderer>().enabled = false;
-
-
-
         }
-
     }
 
     public void ResetTarget()
     {
-       
         gameObject.GetComponent<MeshRenderer>().enabled = true;
     }
 
-
-
-
-
-
-
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Don't try to get component from self
+        if (targetTracker == null)
+        {
+            targetTracker = GetComponent<TargetTracker>();
+            Debug.LogWarning("Target Tracker not assigned to " + gameObject.name);
+        }
     }
 }
