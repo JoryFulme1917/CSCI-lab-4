@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DragonTargetController : MonoBehaviour
+public class DragonTarget : MonoBehaviour
 {
 
     public TargetTracker targetTracker;
