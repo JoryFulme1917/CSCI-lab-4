@@ -8,16 +8,20 @@ public class TargetTracker : MonoBehaviour
     public bool AllDragonHit = false;
     public int targetHitCount = 0;
     public int requiredTargets = 6;
-    public int dragonHits = 0;
+    public int dragonHits;
     public int requiredDragonHits = 20;
 
     public GameObject resetButton;
-    
+    public DragonController dragonController;
+
     void Start()
     {
         // Ensure the reset object has a collider
         if (resetButton != null && resetButton.GetComponent<Collider>() == null)
             Debug.LogError("Reset object needs a collider!");
+
+        dragonHits = 0;
+
     }
     
     public void TargetHit()
@@ -38,7 +42,20 @@ public class TargetTracker : MonoBehaviour
         if (dragonHits >= 20)
         {
             AllDragonHit = true;
+            dragonController.DragonDie();
             Debug.Log("All dragon targets hit! Game should end now");
+        }
+
+        else if (dragonHits != 0 && dragonHits % 5 == 0)
+        {
+            dragonController.DragonHitSpecial();
+
+            Debug.Log("fire animation");
+        }
+        else
+        {
+            dragonController.DragonHit();
+            Debug.Log("dragon should bite");
         }
 
     }
@@ -50,4 +67,7 @@ public class TargetTracker : MonoBehaviour
         AllTargetsHit = false;
         Debug.Log("Targets reset. Dialogue returned to initial state.");
     }
+
+    
+
 }

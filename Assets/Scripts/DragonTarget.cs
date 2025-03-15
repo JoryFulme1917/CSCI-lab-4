@@ -4,7 +4,7 @@ public class DragonTarget : MonoBehaviour
 {
 
     public TargetTracker targetTracker;
-
+    
 
    
 
@@ -17,8 +17,7 @@ public class DragonTarget : MonoBehaviour
             // Increment count only once
             targetTracker.DragonTargetHit();
 
-            // Disable the mesh renderer
-            gameObject.GetComponent<SkinnedMeshRenderer>().enabled = false;
+           
         }
     }
 
