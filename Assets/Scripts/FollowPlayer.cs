@@ -9,7 +9,7 @@ public class FollowPlayer : MonoBehaviour {
     public float maxTurnAngle = 30;
     public float rotX;
     public float rotY;
-    public float cameraDistance = 5f;
+    public float cameraDistance = 2f;
     public float cameraLowestPoint = 0f;
     private Vector3 offset;
 
@@ -39,7 +39,7 @@ public class FollowPlayer : MonoBehaviour {
     }
     
     void PositionCamera() {
-        Vector3 cameraHeight = new Vector3(0, 1, 0);
+        Vector3 cameraHeight = new Vector3(0, 1.5f, 0);
         Vector3 cameraPosition = player.position - (transform.forward * cameraDistance) + cameraHeight;
         transform.position = cameraPosition;
     }
