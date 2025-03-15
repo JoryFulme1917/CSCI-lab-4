@@ -560,7 +560,7 @@ MonoBehaviour:
   maxTurnAngle: 15
   rotX: 0
   rotY: 0
-  cameraDistance: 5
+  cameraDistance: 2
   cameraLowestPoint: 0
 --- !u!1001 &364975159
 PrefabInstance:
@@ -1330,17 +1330,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1058156522918320120, guid: 00a2fcd7e35c91541a557bf7ccb922cf, type: 3}
-      propertyPath: throwArc
-      value: 350
-      objectReference: {fileID: 0}
-    - target: {fileID: 1058156522918320120, guid: 00a2fcd7e35c91541a557bf7ccb922cf, type: 3}
-      propertyPath: throwPower
-      value: 2000
-      objectReference: {fileID: 0}
-    - target: {fileID: 1058156522918320120, guid: 00a2fcd7e35c91541a557bf7ccb922cf, type: 3}
       propertyPath: cameraPosition
       value: 
-      objectReference: {fileID: 937152616}
+      objectReference: {fileID: 330585546}
     - target: {fileID: 1058156522918320120, guid: 00a2fcd7e35c91541a557bf7ccb922cf, type: 3}
       propertyPath: originalProjectile
       value: 

@@ -13,17 +13,21 @@ public class CharacterMovement : MonoBehaviour
     public float minTurnAngle = -30;
     public float maxTurnAngle = 30;
     public float rotX;
+    private Animator animator;
 
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
+
     }
 
     void Update()
     {
         HandleMove();
         HandleRotate();
+        UpdateAnimations();
     } 
 
     void HandleMove()
@@ -48,6 +52,13 @@ public class CharacterMovement : MonoBehaviour
         // rotate the camera
         transform.eulerAngles = new Vector3(-rotX, transform.eulerAngles.y + y, 0);
     }
-
-
+    
+    void UpdateAnimations()
+    {
+        animator.SetFloat("Horizontal", horizontalInput);
+        animator.SetFloat("Vertical", verticalInput);
+        
+        bool isWalking = Mathf.Abs(horizontalInput) > 0.1f || Mathf.Abs(verticalInput) > 0.1f;
+        animator.SetBool("Walking", isWalking);
+    }
 }

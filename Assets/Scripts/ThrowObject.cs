@@ -15,32 +15,47 @@ public class ThrowObject : MonoBehaviour
     public float throwPower;
     public float throwArc;
     bool throwReady;
+    private Animator animator;
+    public float throwDelay;
 
     void Start()
     {
-        throwReady = true;   
+        throwReady = true;
+        animator = GetComponent<Animator>();
+
     }
 
     void Update()
     {
         if(Input.GetKeyDown(throwKey) && throwReady){
-            Throw();
-        }   
+            StartThrowAnimation();
+        }
+        
     }
+    
+    void StartThrowAnimation()
+    {
+        throwReady = false;
+        animator.SetBool("Throwing", true);
+        
+        Invoke("Throw", throwDelay); 
+    }
+    
+    
 
     void Throw()
     {
-        throwReady = false;
         GameObject projectile = Instantiate(originalProjectile, throwPoint.position, cameraPosition.rotation);
         Rigidbody projectileBody = projectile.GetComponent<Rigidbody>();
         Vector3 totalForce = cameraPosition.forward * throwPower + transform.up * throwArc;
         projectileBody.AddForce(totalForce);
-        //https://discussions.unity.com/t/how-to-make-a-delay-before-an-action/177659
+        
         Invoke("ResetThrow", cooldown);
     }
 
     void ResetThrow()
     {
         throwReady = true;
+        animator.SetBool("Throwing", false);
     }
 }
