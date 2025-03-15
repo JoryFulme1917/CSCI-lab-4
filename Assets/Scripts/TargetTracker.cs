@@ -5,9 +5,12 @@ using UnityEngine;
 public class TargetTracker : MonoBehaviour
 {
     public bool AllTargetsHit = false;
+    public bool AllDragonHit = false;
     public int targetHitCount = 0;
     public int requiredTargets = 6;
-    
+    public int dragonHits = 0;
+    public int requiredDragonHits = 20;
+
     public GameObject resetButton;
     
     void Start()
@@ -28,6 +31,19 @@ public class TargetTracker : MonoBehaviour
         }
     }
     
+    public void DragonTargetHit()
+    {
+        dragonHits++;
+
+        if (dragonHits >= 20)
+        {
+            AllDragonHit = true;
+            Debug.Log("All dragon targets hit! Game should end now");
+        }
+
+    }
+
+
     public void ResetTargets()
     {
         targetHitCount = 0;
