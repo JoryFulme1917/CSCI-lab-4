@@ -18,7 +18,7 @@ public class DragonTarget : MonoBehaviour
             targetTracker.DragonTargetHit();
 
             // Disable the mesh renderer
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            gameObject.GetComponent<SkinnedMeshRenderer>().enabled = false;
         }
     }
 
