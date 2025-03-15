@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class FollowPlayer : MonoBehaviour {
 
@@ -8,7 +9,8 @@ public class FollowPlayer : MonoBehaviour {
     public float maxTurnAngle = 30;
     public float rotX;
     public float rotY;
-    public float cameraDistance = 5f; 
+    public float cameraDistance = 5f;
+    public float cameraLowestPoint = 0f;
     private Vector3 offset;
 
     void Start() {
@@ -18,6 +20,10 @@ public class FollowPlayer : MonoBehaviour {
     void Update() {
         HandleRotate();
         PositionCamera();
+        if (transform.position.y <= cameraLowestPoint)
+        {
+            transform.position = new Vector3(transform.position.x, cameraLowestPoint, transform.position.z);
+        }
     }
 
     void HandleRotate() {
@@ -40,5 +46,10 @@ public class FollowPlayer : MonoBehaviour {
 
     public float GetRotY(){
         return rotY;
+    }
+
+    public float GetYPosition()
+    {
+        return transform.position.y;
     }
 }
