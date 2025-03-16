@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TargetTracker : MonoBehaviour
 {
@@ -13,12 +14,15 @@ public class TargetTracker : MonoBehaviour
 
     public GameObject resetButton;
     public DragonController dragonController;
+    public GameObject nextLvlButton;
 
     void Start()
     {
         // Ensure the reset object has a collider
         if (resetButton != null && resetButton.GetComponent<Collider>() == null)
             Debug.LogError("Reset object needs a collider!");
+        if (nextLvlButton != null && nextLvlButton.GetComponent<Collider>() == null)
+            Debug.LogError("next object needs a collider!");
 
         dragonHits = 0;
 
@@ -60,6 +64,20 @@ public class TargetTracker : MonoBehaviour
 
     }
 
+    public void changeScene()
+    {
+        if (AllTargetsHit == true)
+        {
+            SceneManager.LoadScene("Level 2 (Dragon)");
+
+            Debug.Log("Both targets hit. Scene should change.");
+        }
+    }
+
+    //public bool AllTargetsHitCheck()
+   // {
+     //   return AllTargetsHit;
+   // }
 
     public void ResetTargets()
     {

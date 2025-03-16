@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -5,6 +6,7 @@ public class ResetButton : MonoBehaviour
 {
 
     public TargetTracker targetTracker;
+    
     private void OnTriggerEnter(Collider collision)
     {
 
