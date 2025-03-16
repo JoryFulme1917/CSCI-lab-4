@@ -555,7 +555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 937152616}
-  turnSpeed: 3
+  turnSpeed: 1
   minTurnAngle: -15
   maxTurnAngle: 15
   rotX: 0
