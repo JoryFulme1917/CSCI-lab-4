@@ -1015,6 +1015,7 @@ MonoBehaviour:
   requiredDragonHits: 20
   resetButton: {fileID: 0}
   dragonController: {fileID: 1121781578}
+  nextLvlButton: {fileID: 0}
 --- !u!4 &541279934
 Transform:
   m_ObjectHideFlags: 0
@@ -2021,15 +2022,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8680104143836417802, guid: c1247b78283278f40be9516beefdaca7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.08
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8680104143836417802, guid: c1247b78283278f40be9516beefdaca7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.897318
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8680104143836417802, guid: c1247b78283278f40be9516beefdaca7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -23.745165
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8680104143836417802, guid: c1247b78283278f40be9516beefdaca7, type: 3}
       propertyPath: m_LocalRotation.w
