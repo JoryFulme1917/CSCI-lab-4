@@ -10,6 +10,10 @@ We tried to theme our game like a futuristic weapons range, and our character an
 We ran into a lot of trouble with animations all around. Our dragon also took a lot of effort to get to render properly. We did however enjoy getting to watch the game together.
 ## Attributions
 https://www.mixamo.com/#/?page=1&query=&type=Character
+https://assetstore.unity.com/packages/3d/props/low-poly-simple-medieval-props-258397
+https://assetstore.unity.com/packages/2d/textures-materials/floors/vis-pbr-grass-textures-198071
+https://assetstore.unity.com/packages/3d/environments/military-target-136071
+https://assetstore.unity.com/packages/3d/characters/creatures/dragon-pbr-94333
 
 ## Contributions
 Mason created our range and terrain layout and found and imported most of our assets. On top of this, Mason also created the target logic set up the dragon fight. Jory worked on the Title screen, added the skybox, and recorded voice lines that unfortunately did not make it into the final build of the game. Henry created the player and camera controllers, player animations, and throw mechanics.
