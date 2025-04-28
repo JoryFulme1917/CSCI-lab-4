@@ -70,7 +70,7 @@ public class DragonController : MonoBehaviour
         anim.SetBool(TakeOff, false);
         anim.SetBool(Die, false);
 
-        StartCoroutine(DisableAnim(2f));
+        StartCoroutine(DisableAnim(10f));
     }
 
 
