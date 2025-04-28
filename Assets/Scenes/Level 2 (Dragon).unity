@@ -2452,6 +2452,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1058156522918320120, guid: 00a2fcd7e35c91541a557bf7ccb922cf, type: 3}
+      propertyPath: throwArc
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058156522918320120, guid: 00a2fcd7e35c91541a557bf7ccb922cf, type: 3}
+      propertyPath: throwPower
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058156522918320120, guid: 00a2fcd7e35c91541a557bf7ccb922cf, type: 3}
       propertyPath: cameraPosition
       value: 
       objectReference: {fileID: 330585546}
