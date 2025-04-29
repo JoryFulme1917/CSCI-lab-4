@@ -61,7 +61,7 @@ public class DragonController : MonoBehaviour
         anim.SetBool(IdleRestless, false);
         anim.SetBool(Walk, false);
         anim.SetBool(BattleStance, false);
-        anim.SetBool(Bite, true);
+        anim.SetBool("Bite", true);
         anim.SetBool(Drakaris, false);
         anim.SetBool(FlyingFWD, false);
         anim.SetBool(FlyingAttack, false);
